@@ -1,0 +1,4 @@
+{
+  "ipAddress": "0.0.0.0/0",
+  "comment": "Allow all IPs for testing"
+} 
