@@ -13,7 +13,7 @@ const LoginForm = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/send-otp`, { email });
+      await axios.post('http://localhost:3000/api/send-otp', { email });
       setShowOtpForm(true);
     } catch (error) {
       alert(error.response?.data?.message || 'Error sending OTP');
@@ -26,7 +26,7 @@ const LoginForm = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/verify-otp`, {
+      const response = await axios.post('http://localhost:3000/api/verify-otp', {
         email,
         otp
       });

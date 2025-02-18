@@ -1,14 +1,47 @@
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --background: #f8fafc;
+  --text: #1e293b;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --success-bg: #f0fdf4;
+  --success-text: #15803d;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
 .app-container {
-  max-width: 600px;
+  max-width: 480px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #fcfcfc15;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .auth-container {
-  padding: 2rem;
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+h1 {
+  text-align: center;
+  color: var(--text);
+  font-size: 1.875rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
@@ -19,36 +52,48 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  color: var(--text);
 }
 
 input {
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #444;
-  border-radius: 6px;
-  background: #2a2a2a;
-  color: white;
+  padding: 0.875rem;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
   font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 button {
-  background: #646cff;
-  color: white;
   width: 100%;
   padding: 1rem;
+  background: var(--primary);
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.5rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background: #535bf2;
+  background: var(--primary-hover);
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 button:disabled {
-  background: #4a4a4a;
+  background: #94a3b8;
   cursor: not-allowed;
+  transform: none;
 }
 
 .verification-success {
@@ -59,27 +104,43 @@ button:disabled {
 }
 
 .otp-instructions {
-  color: #888;
-  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f1f5f9;
+  border-radius: 0.5rem;
 }
 
 .welcome-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 3rem;
   text-align: center;
-  background: #faf7f7;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
 }
 
 .welcome-container h1 {
-  color: #646cff;
-  margin-bottom: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
 }
 
 .welcome-container p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  .auth-container {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
 }

@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const security = require('./middleware/security');
 
 const app = express();
 
@@ -21,6 +20,8 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -28,8 +29,6 @@ app.use(express.json());
 // Routes
 const emailRoutes = require('./routes/emailroutes')(transporter);
 app.use('/api', emailRoutes);
-
-security(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
